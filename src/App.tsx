@@ -12,10 +12,10 @@ const App = () => {
           <th>Amount</th>
         </tr>
         <tr>
-          <td></td>
+          <td>Data from user input</td>
         </tr>
       </table>
-      <button>Add a Expense!</button>
+      <button>Add an Expense!</button>
     </div>
   )
 }
