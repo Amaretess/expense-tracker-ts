@@ -1,24 +1,18 @@
-import { FieldValues, useForm } from "react-hook-form";
+import { useForm } from 'react-hook-form'
 
 const App = () => {
 
-  const { register, handleSubmit } = useForm();
-  // 
-  console.log(register('name'));
-
-  const onSubmit = (data: FieldValues) => {
-    console.log(data)
-  }
+  const { register } = useForm()
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input {...register('name')} placeholder="First Name" type="text" />
-        <input {...register('name')} placeholder="Last Name" type="text" />
-        <input placeholder="Submit" type="submit" />
+      <form onSubmit={(data) => console.log(data)}>
+        <input {...register('name')} type="text" placeholder="First Name" />
+        <input type="text" placeholder="Last Name" />
+        <input type="submit" />
       </form>
     </>
   )
 }
 
-export default App
+export default App;
