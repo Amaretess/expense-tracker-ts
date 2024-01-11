@@ -1,46 +1,24 @@
-import { useForm, SubmitHandler } from 'react-hook-form';
-import styled from 'styled-components';
-
-type Inputs = {
-  example: string
-  exampleRequired: string
-}
+import { FieldValues, useForm } from "react-hook-form";
 
 const App = () => {
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors }
-  } = useForm<Inputs>()
+  const { register, handleSubmit } = useForm();
+  // 
+  console.log(register('name'));
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
-
+  const onSubmit = (data: FieldValues) => {
+    console.log(data)
+  }
 
   return (
-    <Container>
-      <Title>React Hook Form</Title>
+    <>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input defaultValue="test" {...register("example")} placeholder="First Name" />
-        <input defaultValue="test" {...register("exampleRequired", { required: true })} placeholder="First Name" />
-        {errors.exampleRequired && <p>This field is required</p>}
-        <input placeholder="Last Name" type='submit' />
-
+        <input {...register('name')} placeholder="First Name" type="text" />
+        <input {...register('name')} placeholder="Last Name" type="text" />
+        <input placeholder="Submit" type="submit" />
       </form>
-    </Container>
-
+    </>
   )
 }
 
 export default App
-
-const Container = styled.div`
-  display: flex;
-  width: 100vw;
-  flex-direction: column;
-  align-items: center;
-`
-
-const Title = styled.h1`
-  color: #ec5891;
-`
