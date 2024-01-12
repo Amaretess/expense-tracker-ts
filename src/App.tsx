@@ -1,7 +1,7 @@
 import { FieldValues, useForm } from "react-hook-form"
 import styled from "styled-components";
 import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { zodResolver } from "@hookform/resolvers/zod/dist/zod.js";
 
 const schema = z.object({
   firstName: z.string().min(3, { message: "First name must be at least 3 characters" }),
@@ -15,7 +15,7 @@ type FormData = z.infer<typeof schema>;
 
 const App = () => {
 
-  const { register, handleSubmit, formState: { errors } } = useForm<FormData>({ resolver: zodResolver(schema) });
+  const { register, handleSubmit, formState: { errors, isValid } } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   const onSubmit = (data: FieldValues) => console.log(data)
 
@@ -23,13 +23,13 @@ const App = () => {
     <Container>
       <Title>React Hook Form</Title>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <input {...register('firstName')} type="text" placeholder="First name" className="form-control" />
+        <Input {...register('firstName')} type="text" placeholder="First name" className="form-control" />
         {errors.firstName && <p className="text-danger" >{errors.firstName.message}</p>}
-        <input {...register('lastName')} type="text" placeholder="Last name" className="form-control" />
+        <Input {...register('lastName')} type="text" placeholder="Last name" className="form-control" />
         {errors.lastName && <p className="text-danger" >{errors.lastName.message}</p>}
-        <input {...register('age', { valueAsNumber: true })} type="number" placeholder="age" className="form-control" />
+        <Input {...register('age', { valueAsNumber: true })} type="number" placeholder="age" className="form-control" />
         {errors.age && <p className="text-danger">{errors.age.message}</p>}
-        <input type="submit" />
+        <Input disabled={!isValid} type="submit" className="btn btn-primary" />
       </Form>
     </Container>
   )
@@ -55,4 +55,9 @@ const Container = styled.div`
 const Form = styled.form`
   display: flex;
   flex-direction: column;
+  align-items: center;
+`
+
+const Input = styled.input`
+  margin: 1rem;
 `
