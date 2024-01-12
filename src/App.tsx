@@ -2,9 +2,14 @@ import { FieldValues, useForm } from "react-hook-form"
 import styled from "styled-components";
 
 
+interface FormData {
+  firstName: string;
+  lastName: string;
+}
+
 const App = () => {
 
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
 
   const onSubmit = (data: FieldValues) => console.log(data)
 
