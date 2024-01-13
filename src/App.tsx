@@ -30,6 +30,7 @@ const App = () => {
         <Input {...register('age', { valueAsNumber: true })} type="number" placeholder="age" className="form-control" />
         {errors.age && <p className="text-danger">{errors.age.message}</p>}
         <Input disabled={!isValid} type="submit" className="btn btn-primary" />
+        <input />
       </Form>
     </Container>
   )
