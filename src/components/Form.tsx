@@ -27,14 +27,14 @@ const Form = () => {
             <h1>Expense Tracker</h1>
             <FormContainer onSubmit={handleSubmit(onSubmit)} >
                 <label htmlFor="description">Description</label>
-                <Input {...register('description')} type="text" name="description" />
+                <Input {...register('description')} type="text" name="description" className="form-control" />
                 {errors.description && <p className="text-danger" >{errors.description.message}</p>}
                 <label htmlFor="amount" >Amount</label>
-                <Input {...register('amount')} type="number" name="amount" />
+                <Input {...register('amount')} type="number" name="amount" className="form-control" />
                 {errors.amount && <p className="text-danger" >{errors.amount.message}</p>}
 
                 <label htmlFor="category">Category</label>
-                <Select {...register('category')} name="category" >
+                <Select {...register('category')} name="category" className="form-control" >
                     <option>Groceries</option>
                     <option>Utilities</option>
                     <option>Entertainment</option>
@@ -56,6 +56,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 `
 
 const FormContainer = styled.form`
@@ -68,7 +69,7 @@ const Input = styled.input`
 `
 
 const Select = styled.select`
-    padding: .5rem;
+    
 `
 
 const Button = styled.button`
