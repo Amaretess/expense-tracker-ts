@@ -16,6 +16,7 @@ type FormData = z.infer<typeof schema>
 
 const Form = () => {
 
+
     const { register, handleSubmit, formState: { errors, isValid } } = useForm<FormData>({ resolver: zodResolver(schema) });
     const onSubmit = (data: FieldValues) => {
         console.log(data)
@@ -29,7 +30,7 @@ const Form = () => {
                 <Input {...register('description')} type="text" id="description" className="form-control" />
                 {errors.description && <p className="text-danger" >{errors.description.message}</p>}
                 <label htmlFor="amount" >Amount</label>
-                <Input {...register('amount')} type="number" id="amount" className="form-control" />
+                <Input {...register('amount', { valueAsNumber: true })} type="number" id="amount" className="form-control" />
                 {errors.amount && <p className="text-danger" >{errors.amount.message}</p>}
 
                 <label htmlFor="category">Category</label>
