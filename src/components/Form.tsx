@@ -48,7 +48,9 @@ const Form = () => {
             </select>
             <table>
                 <tr>
-                    <td></td>
+                    <td>item 1</td>
+                    <td>item 2</td>
+                    <td>item 3</td>
                 </tr>
             </table>
 
