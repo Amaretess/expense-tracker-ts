@@ -46,6 +46,20 @@ const Form = () => {
                 <option>Utilities</option>
                 <option>Entertainment</option>
             </select>
+            <table>
+                <tr>
+                    <th>heading 1</th>
+                    <td>item 2</td>
+                    <td>item 3</td>
+                </tr>
+                <tr>
+                    <th>heading 2</th>
+                    <td>item 2</td>
+                    <td>item 3</td>
+                </tr>
+
+            </table>
+
         </Container>
     )
 }
