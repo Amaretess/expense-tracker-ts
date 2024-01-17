@@ -48,10 +48,16 @@ const Form = () => {
             </select>
             <table>
                 <tr>
-                    <td>item 1</td>
+                    <th>heading 1</th>
                     <td>item 2</td>
                     <td>item 3</td>
                 </tr>
+                <tr>
+                    <th>heading 2</th>
+                    <td>item 2</td>
+                    <td>item 3</td>
+                </tr>
+
             </table>
 
         </Container>
