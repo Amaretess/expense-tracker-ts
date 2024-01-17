@@ -47,16 +47,18 @@ const Form = () => {
                 <option>Entertainment</option>
             </select>
             <table>
-                <tr>
-                    <th>heading 1</th>
-                    <td>item 2</td>
-                    <td>item 3</td>
-                </tr>
-                <tr>
-                    <th>heading 2</th>
-                    <td>item 2</td>
-                    <td>item 3</td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>heading 1</th>
+                        <td>item 1</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>heading 2</th>
+                        <td>item 1</td>
+                    </tr>
+                </tbody>
 
             </table>
 
