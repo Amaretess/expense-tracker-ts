@@ -47,11 +47,6 @@ const Form = () => {
                 <option>Entertainment</option>
             </select>
             <table>
-                <tr>
-                    <th>heading 1</th>
-                    <td>item 2</td>
-                    <td>item 3</td>
-                </tr>
 
             </table>
 
