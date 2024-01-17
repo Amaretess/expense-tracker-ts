@@ -46,10 +46,6 @@ const Form = () => {
                 <option>Utilities</option>
                 <option>Entertainment</option>
             </select>
-            <table>
-
-            </table>
-
         </Container>
     )
 }
