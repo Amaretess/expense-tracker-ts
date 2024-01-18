@@ -18,6 +18,8 @@ const Form = () => {
 
 
     const { register, handleSubmit, formState: { errors, isValid } } = useForm<FormData>({ resolver: zodResolver(schema) });
+
+
     const onSubmit = (data: FieldValues) => {
         console.log(data)
     }
@@ -41,27 +43,6 @@ const Form = () => {
                 </Select>
                 <Button type="submit" disabled={!isValid} className="btn btn-primary">Submit</Button>
             </FormContainer>
-            <select>
-                <option>Groceries</option>
-                <option>Utilities</option>
-                <option>Entertainment</option>
-            </select>
-            <table>
-                <thead>
-                    <tr>
-                        <th>heading 1</th>
-                        <td>item 1</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>heading 2</th>
-                        <td>item 1</td>
-                    </tr>
-                </tbody>
-
-            </table>
-
         </Container>
     )
 }
@@ -78,6 +59,7 @@ const Container = styled.div`
 const FormContainer = styled.form`
     display: flex;
     flex-direction: column;
+    align-items: center;
 `
 
 const Input = styled.input`
@@ -85,7 +67,7 @@ const Input = styled.input`
 `
 
 const Select = styled.select`
-    
+    margin: 1rem;
 `
 
 const Button = styled.button`
