@@ -14,6 +14,9 @@ interface Props {
 
 // passing each expense as an object and shaping each expense
 const ExpenseList = ({ expenses, onDelete }: Props) => {
+
+    if (expenses.length === 0) return null;
+
     return (
         <table className="table" >
             <thead>
