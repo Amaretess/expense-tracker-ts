@@ -5,15 +5,17 @@ import Form from "./components/Form.tsx"
 const App = () => {
 
   const [expenses, setExpenses] = useState([
-    { id: 0, description: 'milk', amount: 5, category: 'groceries' },
-    { id: 1, description: 'ham', amount: 6, category: 'groceries' },
-    { id: 2, description: 'insurance', amount: 100, category: 'utilities' },
+    { id: 0, description: 'milk', amount: 4, category: 'groceries' },
+    { id: 1, description: 'eggs', amount: 4, category: 'groceries' },
+    { id: 2, description: 'cheese', amount: 4, category: 'groceries' },
   ])
+
 
   return (
     <>
       <Form />
-      <ExpenseList expenses={expenses} onDelete={(id) => setExpenses(expenses.filter((e) => e.id !== id))} />
+      <ExpenseList expenses={expenses} />
+
     </>
   )
 }
