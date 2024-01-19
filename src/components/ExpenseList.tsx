@@ -22,7 +22,7 @@ const ExpenseList = ({ expenses, onDelete }: Props) => {
                     <th>Description</th>
                     <th>Amount</th>
                     <th>Category</th>
-                    <th></th>
+                    <th>placeholder</th>
                 </tr>
             </thead>
             <tbody>
