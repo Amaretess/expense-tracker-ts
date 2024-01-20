@@ -25,8 +25,25 @@ const Form = () => {
     }
 
     return (
+        <Container>
+            <h1>Expense Tracker</h1>
+            <FormContainer onSubmit={handleSubmit(onSubmit)} >
+                <label htmlFor="description">Description</label>
+                <Input {...register('description')} type="text" id="description" className="form-control" />
+                {errors.description && <p className="text-danger" >{errors.description.message}</p>}
+                <label htmlFor="amount" >Amount</label>
+                <Input {...register('amount', { valueAsNumber: true })} type="number" id="amount" className="form-control" />
+                {errors.amount && <p className="text-danger" >{errors.amount.message}</p>}
 
-        <></>
+                <label htmlFor="category">Category</label>
+                <Select {...register('category')} id="category" className="form-control" >
+                    <option>Groceries</option>
+                    <option>Utilities</option>
+                    <option>Entertainment</option>
+                </Select>
+                <Button type="submit" disabled={!isValid} className="btn btn-primary">Submit</Button>
+            </FormContainer>
+        </Container>
     )
 }
 
