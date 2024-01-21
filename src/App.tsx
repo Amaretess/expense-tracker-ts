@@ -13,7 +13,9 @@ const App = () => {
     { id: 2, description: 'cheese', amount: 4, category: 'Groceries' },
   ])
 
-
+  const visibleExpenses = selectedCategory
+    ? expenses.filter((e) => e.category === selectedCategory)
+    : expenses;
 
   return (
     <>
