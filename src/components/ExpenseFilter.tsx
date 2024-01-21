@@ -7,10 +7,10 @@ interface Props {
 const ExpenseFilter = ({ onSelectCategory }: Props) => {
     return (
         <select className='form-select' onChange={(event) => onSelectCategory(event.target.value)} >
-            <option>Groceries</option>
-            <option>Utilities</option>
-            <option>Entertainment</option>
-
+            <option value="">Select a Category</option>
+            <option value="Groceries" >Groceries</option>
+            <option value="Utilities" >Utilities</option>
+            <option value="Entertainment" >Entertainment</option>
         </select>
     )
 }
