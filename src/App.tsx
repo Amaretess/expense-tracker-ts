@@ -7,7 +7,11 @@ const App = () => {
 
   const [selectedCategory, setSelectedCategory] = useState('')
 
-
+  const [expenses, setExpenses] = useState([
+    { id: 0, description: 'milk', amount: 4, category: 'Groceries' },
+    { id: 1, description: 'eggs', amount: 4, category: 'Groceries' },
+    { id: 2, description: 'cheese', amount: 4, category: 'Groceries' },
+  ])
 
   const visibleExpenses = selectedCategory
     ? expenses.filter((e) => e.category === selectedCategory)
