@@ -8,9 +8,9 @@ const App = () => {
   const [selectedCategory, setSelectedCategory] = useState('')
 
   const [expenses, setExpenses] = useState([
-    { id: 0, description: 'milk', amount: 4, category: 'groceries' },
-    { id: 1, description: 'eggs', amount: 4, category: 'groceries' },
-    { id: 2, description: 'cheese', amount: 4, category: 'groceries' },
+    { id: 0, description: 'milk', amount: 4, category: 'Groceries' },
+    { id: 1, description: 'eggs', amount: 4, category: 'Groceries' },
+    { id: 2, description: 'cheese', amount: 4, category: 'Groceries' },
   ])
 
   const visibleExpenses = selectedCategory
