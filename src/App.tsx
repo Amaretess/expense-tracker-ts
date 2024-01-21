@@ -1,8 +1,11 @@
 import { useState } from "react"
 import ExpenseList from "./components/ExpenseList.tsx"
 import Form from "./components/Form.tsx"
+import ExpenseFilter from "./components/ExpenseFilter.tsx"
 
 const App = () => {
+
+  const [selectedCategory, setSelectedCategory] = useState('')
 
   const [expenses, setExpenses] = useState([
     { id: 0, description: 'milk', amount: 4, category: 'groceries' },
@@ -10,12 +13,18 @@ const App = () => {
     { id: 2, description: 'cheese', amount: 4, category: 'groceries' },
   ])
 
+  const visibleExpenses = selectedCategory
+    ? expenses.filter((e) => e.category === selectedCategory)
+    : expenses;
 
   return (
     <>
       <Form />
-      <ExpenseList expenses={expenses} />
-
+      <div className='mb-3'>
+        <ExpenseFilter onSelectCategory={category => setSelectedCategory()}
+        />
+      </div>
+      <ExpenseList expenses={expenses} onDelete={(id) => setExpenses(expenses.filter(e => e.id !== id))} />
     </>
   )
 }
