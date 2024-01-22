@@ -3,7 +3,7 @@ import ExpenseList from "./components/ExpenseList.tsx"
 import Form from "./components/Form.tsx"
 import ExpenseFilter from "./components/ExpenseFilter.tsx";
 
-export const categories = ['Groceries', 'Utlilties', 'Entertainment'];
+export const categories = ['Groceries', 'Utilities', 'Entertainment'];
 
 const App = () => {
 
@@ -30,7 +30,7 @@ const App = () => {
     <>
       <Form />
       <div className='mb-3'>
-        <ExpenseFilter onSelectCategory={category => console.log(category)}
+        <ExpenseFilter onSelectCategory={category => setSelectedCategory(category)}
         />
       </div>
       <ExpenseList expenses={visibleExpenses} onDelete={(id) => setExpenses(expenses.filter(e => e.id !== id))} />
