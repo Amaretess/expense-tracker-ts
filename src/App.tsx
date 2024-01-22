@@ -1,7 +1,9 @@
 import { useState } from "react"
 import ExpenseList from "./components/ExpenseList.tsx"
 import Form from "./components/Form.tsx"
-import ExpenseFilter from "./components/ExpenseFilter.tsx"
+import ExpenseFilter from "./components/ExpenseFilter.tsx";
+
+export const categories = ['Groceries', 'Utlilties', 'Entertainment'];
 
 const App = () => {
 

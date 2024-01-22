@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { useForm, FieldValues } from 'react-hook-form';
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod/dist/zod.js";
+import { categories } from "../App";
 
 const schema = z.object({
     description: z.string().min(3, { message: "Description needs at least 3 characters" }),
@@ -36,10 +37,8 @@ const Form = () => {
                 {errors.amount && <p className="text-danger" >{errors.amount.message}</p>}
 
                 <label htmlFor="category">Category</label>
-                <Select {...register('category')} id="category" className="form-control" >
-                    <option>Groceries</option>
-                    <option>Utilities</option>
-                    <option>Entertainment</option>
+                <Select {...register('category')} id="category" className="form-select" >
+                    {categories.map((category) => <option key={category} value={category} >{category}</option>)}
                 </Select>
                 <Button type="submit" disabled={!isValid} className="btn btn-primary">Submit</Button>
             </FormContainer>
