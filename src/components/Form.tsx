@@ -1,8 +1,12 @@
 import styled from "styled-components"
-import { useForm, FieldValues } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod/dist/zod.js";
 import categories from "../categories";
+
+interface Props {
+    onSubmit: (data: FormData) => void;
+}
 
 const schema = z.object({
     description: z.string().min(3, { message: "Description needs at least 3 characters" }).max(50),
@@ -16,15 +20,10 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>
 
-const Form = () => {
+const Form = ({ onSubmit }: Props) => {
 
 
     const { register, handleSubmit, formState: { errors, isValid } } = useForm<FormData>({ resolver: zodResolver(schema) });
-
-
-    const onSubmit = (data: FieldValues) => {
-        console.log(data)
-    }
 
     return (
         <Container>

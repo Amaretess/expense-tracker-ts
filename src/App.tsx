@@ -23,10 +23,9 @@ const App = () => {
     : expenses;
 
 
-
   return (
     <>
-      <Form />
+      <Form onSubmit={data => console.log(data)} />
       <div className='mb-3'>
         <ExpenseFilter onSelectCategory={category => setSelectedCategory(category)}
         />
