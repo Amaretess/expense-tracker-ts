@@ -30,7 +30,7 @@ const App = () => {
     <>
       <Form />
       <div className='mb-3'>
-        <ExpenseFilter onSelectCategory={category => setSelectedCategory(category)}
+        <ExpenseFilter onSelectCategory={category => console.log(category)}
         />
       </div>
       <ExpenseList expenses={visibleExpenses} onDelete={(id) => setExpenses(expenses.filter(e => e.id !== id))} />
