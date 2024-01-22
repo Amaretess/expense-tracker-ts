@@ -2,14 +2,15 @@ import styled from "styled-components"
 import { useForm, FieldValues } from 'react-hook-form';
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod/dist/zod.js";
-import { categories } from "../App";
+import categories from "../categories";
 
 const schema = z.object({
-    description: z.string().min(3, { message: "Description needs at least 3 characters" }),
+    description: z.string().min(3, { message: "Description needs at least 3 characters" }).max(50),
     amount: z
         .number({ invalid_type_error: "Amount is required" })
-        .min(1, { message: "amount must be at least $1" }),
-    category: z.string().min(1, { message: "Category is required" })
+        .min(1, { message: "amount must be at least $1" })
+        .max(100_000),
+    category: z.enum(categories)
 
 })
 
