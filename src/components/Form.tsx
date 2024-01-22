@@ -15,20 +15,22 @@ const schema = z.object({
         .min(1, { message: "amount must be at least $1" })
         .max(100_000),
     category: z.enum(categories)
-
-})
+});
 
 type FormData = z.infer<typeof schema>
 
 const Form = ({ onSubmit }: Props) => {
 
 
-    const { register, handleSubmit, formState: { errors, isValid } } = useForm<FormData>({ resolver: zodResolver(schema) });
+    const { register, handleSubmit, reset, formState: { errors, isValid } } = useForm<FormData>({ resolver: zodResolver(schema) });
 
     return (
         <Container>
             <h1>Expense Tracker</h1>
-            <FormContainer onSubmit={handleSubmit(onSubmit)} >
+            <FormContainer onSubmit={handleSubmit(data => {
+                onSubmit(data);
+                reset();
+            })} >
                 <label htmlFor="description">Description</label>
                 <Input {...register('description')} type="text" id="description" className="form-control" />
                 {errors.description && <p className="text-danger" >{errors.description.message}</p>}

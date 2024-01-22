@@ -22,11 +22,9 @@ const App = () => {
     ? expenses.filter((e) => e.category === selectedCategory)
     : expenses;
 
-
-
   return (
     <>
-      <Form onSubmit={data => console.log(data)} />
+      <Form onSubmit={newExpense => setExpenses([...expenses, { ...newExpense, id: expenses.length + 1 }])} />
       <div className='mb-3'>
         <ExpenseFilter onSelectCategory={category => setSelectedCategory(category)}
         />
