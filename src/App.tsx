@@ -16,7 +16,7 @@ const App = () => {
 
   const [expenses, setExpenses] = useState([
     { id: 0, description: 'milk', amount: 4, category: 'Groceries' },
-    { id: 1, description: 'eggs', amount: 4, category: 'Groceries' },
+    { id: 1, description: 'electric', amount: 4, category: 'Utilities' },
     { id: 2, description: 'cheese', amount: 4, category: 'Groceries' },
   ])
 
